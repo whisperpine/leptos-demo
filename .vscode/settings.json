@@ -1,4 +1,9 @@
 {
+    "rust-analyzer.rustfmt.overrideCommand": [
+        "leptosfmt",
+        "--stdin",
+        "--rustfmt"
+    ],
     "files.associations": {
         "LICENSE-MIT": "plaintext",
         "LICENSE-APACHE": "plaintext"
@@ -10,6 +15,7 @@
         "dist/**": true
     },
     "cSpell.words": [
-        "binaryen"
+        "binaryen",
+        "leptosfmt"
     ],
 }

@@ -33,7 +33,17 @@ Install Trunk by either of the following ways
 
 ```sh
 cargo binstall trunk  # install trunk by downloading the binary
-cargo install --locked trunk  # install trunk from source
+cargo install --locked trunk  # or install trunk from source
+```
+
+### leptosfmt
+
+[leptosfmt](https://github.com/bram209/leptosfmt)
+is not integral but highly recommended for quality of life reasons.
+
+```sh
+cargo binstall leptosfmt  # install leptosfmt by downloading the binary
+cargo install --locked leptosfmt  # or install leptosfmt from source
 ```
 
 ## Getting Started

@@ -5,7 +5,6 @@ use leptos::*;
 fn main() {
     console_error_panic_hook::set_once();
     mount_to_body(|| {
-        // view! { <p>"amiao is a cat"</p> }
         view! { <App /> }
     });
 }
@@ -47,7 +46,9 @@ fn three_progress_bars() -> impl IntoView {
     let (count, set_count) = create_signal(0);
     let doubled_count = move || count() * 2;
     view! {
-        <button on:click=move |_| set_count.update(|n| *n += 5)>"add progress"</button>
+        <button class=" bg-slate-500" on:click=move |_| set_count.update(|n| *n += 5)>
+            "add progress"
+        </button>
         <div>
             <ProgressBar progress=count />
         </div>

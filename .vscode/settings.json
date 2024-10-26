@@ -4,7 +4,11 @@
         "--stdin",
         "--rustfmt"
     ],
+    "tailwindCSS.includeLanguages": {
+        "rust": "html"
+    },
     "files.associations": {
+        "*.css": "tailwindcss",
         "LICENSE-MIT": "plaintext",
         "LICENSE-APACHE": "plaintext"
     },

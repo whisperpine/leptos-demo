@@ -45,7 +45,8 @@ It must be installed in local dev environment (choose a preferred way to install
 The `wasm-opt` command  used in [./post-build.sh](./post-build.sh)
 is from [binaryen](https://github.com/WebAssembly/binaryen).\
 [Trunk](#trunk) will run [./post-build.sh](./post-build.sh)
-in the post-build which is configured in [./Trunk.toml](./Trunk.toml).
+in the post_build which is configured in [./Trunk.toml](./Trunk.toml).\
+(albeit the post_build hook is disabled currently, cause it makes autoreload slow).
 
 ### leptosfmt
 

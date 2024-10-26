@@ -36,6 +36,17 @@ cargo binstall trunk  # install trunk by downloading the binary
 cargo install --locked trunk  # or install trunk from source
 ```
 
+### Binaryen
+
+[binaryen](https://github.com/WebAssembly/binaryen)
+is used to reduce wasm file size after compilation.\
+It must be installed in local dev environment (choose a preferred way to install).
+
+The `wasm-opt` command  used in [./post-build.sh](./post-build.sh)
+is from [binaryen](https://github.com/WebAssembly/binaryen).\
+[Trunk](#trunk) will run [./post-build.sh](./post-build.sh)
+in the post-build which is configured in [./Trunk.toml](./Trunk.toml).
+
 ### leptosfmt
 
 [leptosfmt](https://github.com/bram209/leptosfmt)

@@ -3,6 +3,12 @@ name = "leptos-demo"
 version = "0.1.0"
 edition = "2021"
 
+[profile.release]
+panic = "abort"   # abort unwinding on panic
+codegen-units = 1 # better optimization, slower build
+lto = true        # enable link time optimization
+opt-level = "s"   # optimize for size
+
 [dependencies]
 console_error_panic_hook = "0.1"
 leptos = { version = "0.6", features = ["csr", "nightly"] }

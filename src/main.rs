@@ -1,5 +1,3 @@
-use std::any::type_name;
-
 use leptos::*;
 
 fn main() {
@@ -90,8 +88,8 @@ fn inner_html() -> impl IntoView {
 /// so all generic types must be used somewhere in the struct,
 /// which is often easily accomplished using an optional PhantomData prop.
 #[component]
-fn my_size_of<T: Sized>(#[prop(optional)] _p: std::marker::PhantomData<T>) -> impl IntoView {
+fn my_size_of<T>(#[prop(optional)] _p: std::marker::PhantomData<T>) -> impl IntoView {
     let size = std::mem::size_of::<T>();
-    let type_name = type_name::<T>();
+    let type_name = std::any::type_name::<T>();
     view! { <div>"size of " {type_name} " is " {size}</div> }
 }

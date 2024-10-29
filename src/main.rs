@@ -16,7 +16,42 @@ fn app() -> impl IntoView {
         <InnerHtml />
         <br />
         <MySizeOf<u32> />
+        <br />
+        <StaticList />
+        <br />
+        <ReactiveStaticList />
     }
+}
+
+#[component]
+fn static_list() -> impl IntoView {
+    let values = vec![1, 2, 3];
+    let list_items = values
+        .iter()
+        .map(|x| view! { <li>"item " {*x}</li> })
+        .collect_view();
+    view! {
+        <p>{values}</p>
+        <ol>{list_items}</ol>
+    }
+}
+
+#[component]
+fn reactive_static_list() -> impl IntoView {
+    let upper_limit = 5;
+    let counter = (1..=upper_limit).map(|idx| create_signal(idx));
+    let items = counter
+        .map(|(count, count_set)| {
+            view! {
+                <li>
+                    <button on:click=move |_| {
+                        count_set.update(|n| *n += 1)
+                    }>"button: " {count}</button>
+                </li>
+            }
+        })
+        .collect_view();
+    view! { <ol>{items}</ol> }
 }
 
 #[component]

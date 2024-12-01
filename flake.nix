@@ -49,7 +49,7 @@
           # };
           rust.nightly."2024-11-13".default.override {
             extensions = [ "rust-src" ];
-            targets = [ ];
+            targets = [ "wasm32-unknown-unknown" ];
           };
       };
 

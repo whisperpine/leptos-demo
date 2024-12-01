@@ -11,4 +11,4 @@ opt-level = "s"   # optimize for size
 
 [dependencies]
 console_error_panic_hook = "0.1"
-leptos = { version = "0.6", features = ["csr", "nightly"] }
+leptos = { version = "0.7", features = ["csr", "nightly"] }

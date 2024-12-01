@@ -1,4 +1,4 @@
-use leptos::*;
+use leptos::prelude::*;
 
 fn main() {
     console_error_panic_hook::set_once();
@@ -39,7 +39,7 @@ fn static_list() -> impl IntoView {
 #[component]
 fn reactive_static_list() -> impl IntoView {
     let upper_limit = 5;
-    let counter = (1..=upper_limit).map(|idx| create_signal(idx));
+    let counter = (1..=upper_limit).map(|idx| signal(idx));
     let items = counter
         .map(|(count, count_set)| {
             view! {
@@ -56,7 +56,7 @@ fn reactive_static_list() -> impl IntoView {
 
 #[component]
 fn dynamic_style_button() -> impl IntoView {
-    let (x, set_x) = create_signal(0);
+    let (x, set_x) = signal(0);
     view! {
         <button
             on:click=move |_| set_x.update(|n| *n += 10)
@@ -67,7 +67,7 @@ fn dynamic_style_button() -> impl IntoView {
             style:background-color=move || format!("rgb({}, {}, 100)", x(), 100)
             style:max-width="400px"
             // Set a CSS variable for stylesheet use
-            style=("--columns", x)
+            style=("--columns", move || x.get().to_string())
         >
             "Click to Move"
         </button>
@@ -76,7 +76,7 @@ fn dynamic_style_button() -> impl IntoView {
 
 #[component]
 fn three_progress_bars() -> impl IntoView {
-    let (count, set_count) = create_signal(0);
+    let (count, set_count) = signal(0);
     let doubled_count = move || count() * 2;
     view! {
         <button class=" bg-slate-500" on:click=move |_| set_count.update(|n| *n += 5)>
@@ -103,7 +103,7 @@ fn progress_bar(
     #[prop(default = 100)]
     max: u32,
     /// This is a comment for `progress`
-    progress: impl Fn() -> u32 + 'static,
+    progress: impl Fn() -> u32 + 'static + Send,
 ) -> impl IntoView {
     view! { <progress max=max value=progress /> }
 }

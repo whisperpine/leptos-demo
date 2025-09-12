@@ -1,4 +1,4 @@
-# README
+# Leptos Demo
 
 A [leptos](https://github.com/leptos-rs/leptos) demo project.
 
